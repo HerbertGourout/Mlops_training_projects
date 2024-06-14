@@ -3,6 +3,7 @@ import os
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
+from sklearn.decomposition import PCA
 root= os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, str(root))
 from prediction_model.config import config
@@ -20,6 +21,7 @@ preprocessor = ColumnTransformer(
 )
 
 pipeline = Pipeline([
-    ('preprocessor', preprocessor)
+    ('preprocessor', preprocessor), 
+    ("PCA", PCA(n_components=0.95))
 ])
 print("Hello word")

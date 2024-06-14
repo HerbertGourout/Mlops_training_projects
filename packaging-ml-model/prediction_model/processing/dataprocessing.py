@@ -267,8 +267,8 @@ class ModelTrainer:
         self.column_names = [col.replace('remainder__', '').replace('one_hot_encoding__', '') for col in self.column_names]
         
         # Conversion des données transformées en DataFrame avec les noms de colonnes
-        self.Xtrain = pd.DataFrame(self.Xtrain_enc, columns=self.column_names)
-        self.Xtest = pd.DataFrame(self.Xtest_enc, columns=self.column_names)
+        self.Xtrain = pd.DataFrame(self.Xtrain_enc)
+        self.Xtest = pd.DataFrame(self.Xtest_enc)
         
         # Encodage des étiquettes
         self.encode_labels()
